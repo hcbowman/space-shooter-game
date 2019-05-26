@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour
 {
-    //public PowerUpController controller;
+    public PowerUpController controller;
 
     [SerializeField]
     private PowerUp powerUp;

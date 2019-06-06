@@ -22,18 +22,19 @@ public class PowerUpBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            ActivayePowerUp();
+            ActivatePowerUp();
             gameObject.SetActive(false);
         }
     }
 
-    private void ActivayePowerUp()
+    private void ActivatePowerUp()
     {
-        //controller
+        controller.ActivatePowerUp(powerUp);
     }
 
     public void SetPowerUp(PowerUp powerUp)
     {
+        this.powerUp = powerUp;
         gameObject.name = powerUp.name;
     }
 }

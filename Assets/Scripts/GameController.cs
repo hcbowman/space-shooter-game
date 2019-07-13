@@ -16,20 +16,25 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnWaves();
+        StartCoroutine(SpawnWaves());
     }
 
-    void SpawnWaves()
+    IEnumerator SpawnWaves()
     {
-
-        while(true)
+        yield return new WaitForSeconds(startWait);
+        while (true)
         {
+            
             for (int i = 0; i < hazardCount; i++)
             {
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotaion = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotaion);
+
+                yield return new WaitForSeconds(spawnWait);
             }
+            yield return new WaitForSeconds(waveWait);
+
         }
 
     }
